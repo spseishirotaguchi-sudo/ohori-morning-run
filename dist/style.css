@@ -18,9 +18,14 @@
 .band img{display:block;width:100%;height:clamp(170px,23vw,290px);object-fit:cover}
 .band-a img{object-position:20% 62%}
 .band-b img{object-position:86% 40%}
-.ig{display:inline-block;font-family:'Noto Sans JP',sans-serif;font-size:11px;letter-spacing:.06em;border-bottom:1px solid;padding:5px 0}
-.founder-signature .ig{display:block;margin-top:10px;font-size:12px}
-footer .ig{margin-bottom:7px}
+/* Instagram はアイコンだけを置き、押すとプロフィールへ飛ぶ。
+   指で押しやすいよう、当たり判定は44px角を確保している。 */
+.ig{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;padding:0;border:0;color:inherit;transition:opacity .2s}
+.ig:hover{opacity:.6}
+.ig svg{width:25px;height:25px;display:block;fill:none;stroke:currentColor;stroke-width:1.7}
+.ig svg .dot{fill:currentColor;stroke:none}
+.founder-signature .ig{display:flex;margin:8px 0 0 auto}
+footer .ig{margin:2px 0}
 
 /* 改行の制御。
    日本語は既定だとどの文字の間でも改行されるため、単語の途中で割れる。
@@ -71,10 +76,13 @@ h1{font-size:clamp(26px,9vw,44px);letter-spacing:.04em}
 .recruit-status h3{font-size:clamp(15px,4.8vw,18px)}
 .fee strong{font-size:clamp(38px,13.6vw,51px)}
 .band img{height:clamp(140px,45vw,170px)}
-.founder-signature .ig{font-size:11px}
+
 }
 @media(max-width:360px){
 .facts>div,dl>div{grid-template-columns:78px 1fr}
+/* 画面が狭いと申込みボタンの文字が2行に割れるので、枠と余白を詰める */
+.recruit-status{padding:20px 16px}
+.button{padding:16px;min-width:0}
 }
 
 /* 事前決済セクションの本文が、背景の英字に押されて右端で切れていたのを直す */
