@@ -12,3 +12,59 @@
 .founder-letter .founder-invitation{font-weight:500;margin-top:34px}
 .founder-letter .founder-signature{text-align:right;font-size:.875rem;margin:38px 0 0;padding-top:22px;border-top:1px solid var(--line)}
 @media(max-width:700px){.founder-letter p{font-size:1rem;line-height:2.1}.founder-letter .founder-key{font-size:1.1rem;padding-left:16px}.founder-letter .founder-invitation br{display:none}}
+
+/* Photo bands between sections, and the Instagram link. */
+.band{margin:0;overflow:hidden;background:#232928}
+.band img{display:block;width:100%;height:clamp(170px,23vw,290px);object-fit:cover}
+.band-a img{object-position:20% 62%}
+.band-b img{object-position:86% 40%}
+.ig{display:inline-block;font-family:'Noto Sans JP',sans-serif;font-size:11px;letter-spacing:.06em;border-bottom:1px solid;padding:5px 0}
+.founder-signature .ig{display:block;margin-top:10px;font-size:12px}
+footer .ig{margin-bottom:7px}
+
+/* 改行の制御。
+   日本語は既定だとどの文字の間でも改行されるため、単語の途中で割れる。
+   keep-all で文字間の改行を止め、文節の切れ目に置いた <wbr> だけで改行させる。
+   どうしても収まらない場合だけ break-word が働いて、はみ出しを防ぐ。 */
+body{word-break:keep-all;overflow-wrap:break-word;line-break:strict}
+.founder-letter p{overflow-wrap:break-word}
+
+/* PC でも、2カラムになる幅では見出しの入る幅が狭い。
+   固定サイズだと語の途中で折り返すので、こちらも幅に追従させる。 */
+.promise h2{font-size:clamp(26px,3.4vw,47px)}
+
+/* ウィンドウの高さが低いとき、見出しが下の注記に重なっていた。
+   高さを固定せず、中身が入りきらないときは伸びるようにする。 */
+.hero{height:auto;min-height:max(610px,min(780px,calc(100svh - 98px)))}
+
+/* 文字サイズを画面幅に追従させる。
+   スマホでも、PCで拡大しても、1行に入る文字数が大きく変わらないようにする。 */
+@media(max-width:700px){
+.brand{font-size:clamp(12px,4vw,16px);gap:8px}
+.brand small{font-size:clamp(6px,1.9vw,8px);letter-spacing:.12em;margin-top:5px}
+.nav-cta{font-size:clamp(9px,2.7vw,11px);padding:9px 10px}
+.nav-cta span{margin-left:7px}
+h1{font-size:clamp(28px,11vw,44px)}
+.hero-lead{font-size:clamp(13px,4vw,16px)}
+.hero{height:auto;max-height:none;min-height:max(650px,min(850px,calc(100svh - 80px)))}
+.section h2{font-size:clamp(20px,7.1vw,29px)}
+.promise h2{font-size:clamp(22px,7vw,32px)}
+.closing h2{font-size:clamp(24px,9vw,34px)}
+.flow-heading h2{font-size:clamp(22px,8.2vw,31px)}
+.value-row h3{font-size:clamp(17px,5.6vw,21px)}
+.morning-flow h3{font-size:clamp(16px,5.3vw,20px)}
+.recruit-status h3{font-size:clamp(15px,4.8vw,18px)}
+.fee strong{font-size:clamp(38px,13.6vw,51px)}
+.band img{height:clamp(140px,45vw,170px)}
+.founder-signature .ig{font-size:11px}
+}
+@media(max-width:360px){
+.facts>div,dl>div{grid-template-columns:78px 1fr}
+}
+
+/* 事前決済セクションの本文が、背景の英字に押されて右端で切れていたのを直す */
+.promise-inner,.promise-side{min-width:0}
+
+/* 数字と単位、時刻など、途中で切りたくない語のまとまり */
+.nw{white-space:nowrap}
+.nav-cta,.hero-detail,.fee>span,.status-label{white-space:nowrap}
