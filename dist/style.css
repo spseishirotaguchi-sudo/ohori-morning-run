@@ -26,8 +26,17 @@ footer .ig{margin-bottom:7px}
    日本語は既定だとどの文字の間でも改行されるため、単語の途中で割れる。
    keep-all で文字間の改行を止め、文節の切れ目に置いた <wbr> だけで改行させる。
    どうしても収まらない場合だけ break-word が働いて、はみ出しを防ぐ。 */
-body{word-break:keep-all;overflow-wrap:break-word;line-break:strict}
+/* iOS Safari は、幅の広い文章ブロックの文字サイズを勝手に拡大することがあり、
+   それが原因で文字が画面からはみ出す。拡大を止める。 */
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+/* 万一どこかがはみ出しても、ページ全体が横スクロールしないようにする保険 */
+html,body{max-width:100%;overflow-x:hidden}
+body{word-break:normal;overflow-wrap:break-word;line-break:strict}
 .founder-letter p{overflow-wrap:break-word}
+/* 文節ごとに inline-block で包み、その境目（<wbr>）だけで改行させる。
+   文節が1行に入らないときは、その中で普通に折り返すので、はみ出すことはない。
+   word-break:keep-all はブラウザによって折り返し先を失いはみ出すため使わない。 */
+.ph{display:inline-block}
 
 /* PC でも、2カラムになる幅では見出しの入る幅が狭い。
    固定サイズだと語の途中で折り返すので、こちらも幅に追従させる。 */
