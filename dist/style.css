@@ -38,6 +38,10 @@ body{word-break:normal;overflow-wrap:break-word;line-break:strict}
    word-break:keep-all はブラウザによって折り返し先を失いはみ出すため使わない。 */
 .ph{display:inline-block}
 .recruit-status .button{margin-top:20px}
+/* 矢印を外したぶん、ボタンの文字を中央に置き直して幅を保つ */
+.button{justify-content:center;gap:0;padding:19px 38px;min-width:236px}
+.nav-cta{min-width:0;padding:13px 22px}
+@media(max-width:700px){.button{padding:18px 26px;min-width:200px}.nav-cta{padding:9px 12px}}
 
 /* PC でも、2カラムになる幅では見出しの入る幅が狭い。
    固定サイズだと語の途中で折り返すので、こちらも幅に追従させる。 */
