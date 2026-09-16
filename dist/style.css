@@ -37,6 +37,7 @@ body{word-break:normal;overflow-wrap:break-word;line-break:strict}
    文節が1行に入らないときは、その中で普通に折り返すので、はみ出すことはない。
    word-break:keep-all はブラウザによって折り返し先を失いはみ出すため使わない。 */
 .ph{display:inline-block}
+.recruit-status .button{margin-top:20px}
 
 /* PC でも、2カラムになる幅では見出しの入る幅が狭い。
    固定サイズだと語の途中で折り返すので、こちらも幅に追従させる。 */
